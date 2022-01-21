@@ -20,6 +20,16 @@ class OptimizeWP
         add_filter('script_loader_tag', array($this,'remove_type_attr'), 999, 2);
         add_filter( 'get_custom_logo',  array($this,'remove_itemprop' ));
 
+        /**
+         *  Remove s.w.org prefetch - we dont need it (its just because of emojis)
+         */
+        add_filter('emoji_svg_url', '__return_false');
+
+        /**
+         * Remove breaks from CF7 forms
+         */
+        add_filter('wpcf7_autop_or_not', '__return_false');
+
         // Clean WP head
         remove_action( 'wp_head', 'feed_links_extra', 3 ); 
         remove_action( 'wp_head', 'feed_links', 2 ); 
@@ -27,6 +37,11 @@ class OptimizeWP
         remove_action( 'wp_head', 'wlwmanifest_link'); 
         remove_action( 'wp_head', 'wp_generator'); 
         remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+
+        remove_action( 'wp_head', 'index_rel_link');
+        remove_action( 'wp_head', 'feed_links_extra', 3);
+        remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0);
+        remove_action( 'wp_head', 'rest_output_link_wp_head', 10);
 
         // Handle SVG
         new SVGSupport();

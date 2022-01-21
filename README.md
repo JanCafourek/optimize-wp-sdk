@@ -1,5 +1,7 @@
 # Optimize WP SDK
 
+Fork from git@github.com:vyskoczilova/optimize-wp-sdk.git
+
 The WP optimize package for [Karolína Vyskočilová's](https://kybernaut.cz) WordPress projects. Feel free to use it, if it helps.
 
 ## Install
