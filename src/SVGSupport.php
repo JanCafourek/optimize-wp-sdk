@@ -18,7 +18,7 @@ class SVGSupport
      */
     public function __construct()
     {
-        $this->sanitizer = new \svgSanitize\Sanitizer();
+        $this->sanitizer = new svgSanitize\Sanitizer();
         $this->sanitizer->minify( true );
 
         add_filter( 'upload_mimes', array( $this, 'svg_upload_mimes') );
