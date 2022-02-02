@@ -42,10 +42,6 @@ class OptimizeWP
         remove_action( 'wp_head', 'feed_links_extra', 3);
         remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0);
         remove_action( 'wp_head', 'rest_output_link_wp_head', 10);
-
-        // Handle SVG
-        new SVGSupport();
-        
     }
 
     /**
